@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Myfire automater",
+  "version": "1.0",
+  "description": "fills the work hours of myfire",
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_popup": "popup/choose_hours.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://myfire.technologyandstrategy.com/*"
+      ]
+    }
+  ],
+  "icons":{
+    "48":"icons/schedule_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.png"
+  }
+}

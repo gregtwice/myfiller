@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="choose_hours.css" />
+  </head>
+
+  <body>
+    <div id="popup-content">
+      <form action="#">
+        <div>
+          <label for="startDay">Hour of arrival</label>
+          <input id="startDay" type="text" pattern="\d{1,2}:\d{2}">
+        </div>
+
+        <div>
+          <label for="startDay">Hour of departure</label>
+          <input id="startDay" type="text" pattern="\d{1,2}:\d{2}">
+        </div>
+        <div>
+
+          <label for="assumePause">Assume a 45mn pause</label>
+          <input type="checkbox" id="assumePause">
+        </div>
+        <button type="reset">Reset</button>
+        <button>Fill</button>
+      </form>
+    </div>
+    <div id="error-content" class="hidden">
+      <p>Can't use on this web page.</p>
+    </div>
+    <script src="choose_hours.js"></script>
+  </body>
+</html>
