@@ -1,34 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="choose_hours.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
   </head>
 
   <body>
     <div id="popup-content">
+      <h3 class="text-center">My Fill'heure</h3>
       <form action="#">
-        <div>
-          <label for="startDay">Hour of arrival</label>
-          <input id="startDay" type="text" pattern="\d{1,2}:\d{2}">
+        <div class="container">
+          <div class="form-row">
+            <div class="col-lg">
+              <label for="startDay">Hour of arrival</label>
+              <input
+                class="timeInput form-control"
+                id="startDay"
+                type="text"
+                pattern="\d{1,2}:\d{2}"
+              />
+            </div>
+            <div class="col-lg">
+              <label for="pause">Pause</label>
+              <input
+                class="timeInput form-control"
+                type="text"
+                name="pause"
+                id="pause"
+                value="00:45"
+              />
+            </div>
+            <div class="col-lg">
+              <label for="endDay">Hour of departure</label>
+              <input
+                class="timeInput form-control"
+                id="endDay"
+                type="text"
+                pattern="\d{1,2}:\d{2}"
+              />
+            </div>
+          </div>
+          <div class="form-row mt-3">
+            <div class="col">
+              <button id="setHours" class="btn w-100 btn-success">Set Hours</button>
+            </div>
+          </div>
         </div>
+        <hr class="my-2" />
+        <div class="container">
+          <div class="">
+            <label for="projects">Selected project</label>
+            <select class="projects form-control mr-sm-2" id="projects">
+              <option value="Choose">Choose</option>
+            </select>
 
-        <div>
-          <label for="startDay">Hour of departure</label>
-          <input id="startDay" type="text" pattern="\d{1,2}:\d{2}">
+            <label for="hours">Hours worked</label>
+            <input class="form-control timeInput" name="hours" id="projectHours" type="text" />
+            <button class="btn btn-success mt-2 w-100" id="setProjectHours">
+              Set hours for project
+            </button>
+          </div>
         </div>
-        <div>
-
-          <label for="assumePause">Assume a 45mn pause</label>
-          <input type="checkbox" id="assumePause">
+        <hr class="my-2" />
+        <div class="container mt-2">
+          <button id="reset" class="btn btn-warning w-100">Reset RA</button>
         </div>
-        <button type="reset">Reset</button>
-        <button>Fill</button>
       </form>
     </div>
     <div id="error-content" class="hidden">
       <p>Can't use on this web page.</p>
     </div>
+    <script src="/src/MfHours.js"></script>
     <script src="choose_hours.js"></script>
+    <script></script>
   </body>
 </html>

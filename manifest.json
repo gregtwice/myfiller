@@ -4,7 +4,8 @@
   "version": "1.0",
   "description": "fills the work hours of myfire",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "browser_action": {
     "default_popup": "popup/choose_hours.html"
@@ -16,7 +17,7 @@
       ]
     }
   ],
-  "icons":{
-    "48":"icons/schedule_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.png"
+  "icons": {
+    "48": "icons/schedule_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.png"
   }
 }
