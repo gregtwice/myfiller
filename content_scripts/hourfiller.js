@@ -43,7 +43,7 @@
     my_fire_set_pause_duration("00:45");
     my_fire_set_hour_of_departure("00:00");
     for (let project = 0; project < get_number_of_projects(); project++) {
-      my_fire_set_project_hours(project + 1, "00:00");
+      my_fire_set_project_hours(project, "00:00");
     }
   }
 
@@ -51,7 +51,7 @@
    * Calculates the amount of projects - minus the IC
    */
   function get_number_of_projects() {
-    return document.querySelectorAll(".affectation").length - 1;
+    return document.querySelectorAll(".affectation").length;
   }
 
   browser.runtime.onMessage.addListener((message) => {
@@ -61,7 +61,7 @@
         break;
       case "RA::fillOfficeHours":
         my_fire_set_hour_of_arrival(message.startOfDay);
-        my_fire_set_pause_duration(message.pause);
+        my_fire_set_pause_duration(message.pauseTime);
         my_fire_set_hour_of_departure(message.endOfDay);
         break;
 

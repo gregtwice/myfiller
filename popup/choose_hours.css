@@ -1,7 +1,17 @@
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
-#popup-content{
-    width: 20rem;
+/* html { */
+/* } */
+
+#popup-content {
+  width: 20rem;
+}
+
+.feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
 }

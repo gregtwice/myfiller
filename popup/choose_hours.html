@@ -9,10 +9,10 @@
   <body>
     <div id="popup-content">
       <h3 class="text-center">My Fill'heure</h3>
-      <form action="#">
-        <div class="container">
+      <div class="container">
+        <form action="#">
           <div class="form-row">
-            <div class="col-lg">
+            <div class="col">
               <label for="startDay">Hour of arrival</label>
               <input
                 class="timeInput form-control"
@@ -20,18 +20,9 @@
                 type="text"
                 pattern="\d{1,2}:\d{2}"
               />
+              <span class="feedback"></span>
             </div>
-            <div class="col-lg">
-              <label for="pause">Pause</label>
-              <input
-                class="timeInput form-control"
-                type="text"
-                name="pause"
-                id="pause"
-                value="00:45"
-              />
-            </div>
-            <div class="col-lg">
+            <div class="col">
               <label for="endDay">Hour of departure</label>
               <input
                 class="timeInput form-control"
@@ -39,34 +30,64 @@
                 type="text"
                 pattern="\d{1,2}:\d{2}"
               />
+              <span class="feedback"></span>
             </div>
           </div>
-          <div class="form-row mt-3">
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input
+                  type="checkbox"
+                  id="useCustomPause"
+                  aria-label="Checkbox for following text input"
+                />
+              </div>
+              <span class="input-group-text">Custom pause:</span>
+            </div>
+
+            <label class="sr-only" for="pause">Pause</label>
+            <input
+              class="timeInput form-control"
+              type="text"
+              name="pause"
+              id="pause"
+              value="00:45"
+              disabled
+            />
+            <span class="feedback"></span>
+          </div>
+          <div class="form-row mt-2">
             <div class="col">
               <button id="setHours" class="btn w-100 btn-success">Set Hours</button>
             </div>
           </div>
-        </div>
-        <hr class="my-2" />
-        <div class="container">
-          <div class="">
-            <label for="projects">Selected project</label>
-            <select class="projects form-control mr-sm-2" id="projects">
-              <option value="Choose">Choose</option>
-            </select>
+        </form>
+      </div>
 
-            <label for="hours">Hours worked</label>
-            <input class="form-control timeInput" name="hours" id="projectHours" type="text" />
-            <button class="btn btn-success mt-2 w-100" id="setProjectHours">
-              Set hours for project
-            </button>
+      <hr class="my-2" />
+      <div class="container">
+        <label for="projects">Selected project</label>
+        <select class="projects form-control mr-sm-2" id="projects"></select>
+
+        <label for="hours">Hours worked</label>
+        <input class="form-control timeInput" name="hours" id="projectHours" type="text" />
+        <span class="feedback"></span>
+
+        <div class="container">
+          <div class="row mt-2">
+            <div class="col p-0 pr-1">
+              <button class="btn btn-success w-100" id="setProjectHours">Fill hours</button>
+            </div>
+            <div class="col p-0 pl-1">
+              <button class="btn btn-danger w-100" id="clearProjectHours">Clear hours</button>
+            </div>
           </div>
         </div>
-        <hr class="my-2" />
-        <div class="container mt-2">
-          <button id="reset" class="btn btn-warning w-100">Reset RA</button>
-        </div>
-      </form>
+      </div>
+      <hr class="my-2" />
+      <div class="container mt-2">
+        <button id="reset" class="btn btn-warning w-100">Reset RA</button>
+      </div>
     </div>
     <div id="error-content" class="hidden">
       <p>Can't use on this web page.</p>
