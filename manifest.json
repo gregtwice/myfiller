@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "My Fill'heure",
-  "version": "1.1",
+  "version": "1.2",
   "author": "GregTwice",
   "description": "fills the activity report of myfire, please file any issues at https://github.com/gregtwice/myfiller",
   "permissions": ["activeTab", "storage"],
