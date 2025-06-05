@@ -1,20 +1,17 @@
 {
   "manifest_version": 2,
-  "name": "Myfire automater",
-  "version": "1.0",
-  "description": "fills the work hours of myfire",
-  "permissions": [
-    "activeTab",
-    "storage"
-  ],
+  "name": "My Fill'heure",
+  "version": "1.1",
+  "author": "GregTwice",
+  "description": "fills the activity report of myfire, please file any issues at https://github.com/gregtwice/myfiller",
+  "permissions": ["activeTab", "storage"],
+  "homepage_url": "https://github.com/gregtwice/myfiller",
   "browser_action": {
     "default_popup": "popup/choose_hours.html"
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://myfire.technologyandstrategy.com/*"
-      ]
+      "matches": ["https://myfire.technologyandstrategy.com/*"]
     }
   ],
   "icons": {
