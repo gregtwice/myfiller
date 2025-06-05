@@ -31,7 +31,7 @@
   }
 
   function my_fire_set_project_hours(projectIndex, hoursWorked) {
-    let project = document.querySelectorAll(".affectation").item(projectIndex);
+    let project = document.querySelectorAll(".affectation, .ssAff").item(projectIndex);
     my_fire_text_field_filler(".heureProjet", hoursWorked, project);
   }
 
@@ -51,10 +51,10 @@
    * Calculates the amount of projects - minus the IC
    */
   function get_number_of_projects() {
-    return document.querySelectorAll(".affectation").length;
+    return document.querySelectorAll(".affectation, .ssAff").length;
   }
 
-  browser.runtime.onMessage.addListener((message) => {
+  browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     switch (message.command) {
       case "RA::resetAllInputs":
         reset_hour_fields();
@@ -70,12 +70,24 @@
         my_fire_set_project_hours(projectIdx, timeWorked);
         break;
       case "prj::getAll":
-        const projects = Array.from(document.querySelectorAll(".titreProj>span")).map(
-          (e) => e.firstChild.nodeValue
-        );
-        console.log(projects);
-
-        return Promise.resolve(projects);
+        const projects = Array.from(
+          document.querySelectorAll(".titreProj>span, .ssAff .titreProj")
+        ).map((project_elem) => {
+          // This is a project
+          if (project_elem.firstChild.nodeValue) {
+            return {
+              type: "PRJ",
+              name: project_elem.firstChild.nodeValue,
+            };
+          } else {
+            // This is a sub affectation
+            return {
+              type: "SA",
+              name: project_elem.firstChild.value,
+            };
+          }
+        });
+        sendResponse(projects);
     }
   });
 })();

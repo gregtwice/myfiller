@@ -10,7 +10,7 @@
     <div id="popup-content">
       <h3 class="text-center">My Fill'heure</h3>
       <div class="container">
-        <form action="#">
+        <form id="arrDepart" action="#">
           <div class="form-row">
             <div class="col">
               <label for="startDay">Hour of arrival</label>
@@ -23,11 +23,12 @@
               <span class="feedback"></span>
             </div>
             <div class="col">
-              <label for="endDay">Hour of departure</label>
+              <label for="hoursWorked">Hours/day</label>
               <input
                 class="timeInput form-control text-right"
-                id="endDay"
+                id="hoursWorked"
                 type="text"
+                value="08:00"
                 pattern="\d{1,2}:\d{2}"
               />
               <span class="feedback"></span>
